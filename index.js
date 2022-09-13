@@ -10,7 +10,7 @@ import {create, getAll, getLastTags, getOne, remove, update} from "./controllers
 import handleValidationErrors from "./utils/handleValidationErrors.js";
 
 mongoose
-    .connect(process.env.MONGODB_URI)
+    .connect(process.env.MONGODB_URI || `mongodb+srv://ShuVeriDa:5940530bbbb@cluster0.rbsvcdh.mongodb.net/?retryWrites=true&w=majority`)
     .then(() => console.log('DB OK'))
     .catch((err) => console.log('DB error', err))
 
