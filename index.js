@@ -9,6 +9,7 @@ import {getMe, login, register} from "./controllers/UserController.js";
 import {create, getAll, getLastTags, getOne, remove, update} from "./controllers/PostController.js";
 import handleValidationErrors from "./utils/handleValidationErrors.js";
 
+
 mongoose
     .connect(process.env.MONGODB_URI)
     .then(() => console.log('DB OK'))
