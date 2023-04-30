@@ -20,6 +20,8 @@ mongoose
 
 const app = express()
 
+app.use(cors({ origin: 'https://svdblog.vercel.app' }));
+
 
 const storage = multer.diskStorage({
     destination: (_, __, callback) => {
