@@ -1,3 +1,6 @@
+import dotenv from 'dotenv';
+dotenv.config();
+
 import express from 'express'
 import fs from 'fs'
 import mongoose from 'mongoose'
@@ -10,13 +13,13 @@ import {getMe, login, register} from "./controllers/UserController.js";
 import {create, getAll, getLastTags, getOne, remove, update} from "./controllers/PostController.js";
 import handleValidationErrors from "./utils/handleValidationErrors.js";
 
-
 mongoose
-    .connect(process.env.MONGODB_URI || `mongodb+srv://ShuVeriDa:5940530bbbb@cluster0.rbsvcdh.mongodb.net/?retryWrites=true&w=majority`)
+    .connect(process.env.MONGODB_URI)
     .then(() => console.log('DB OK'))
     .catch((err) => console.log('DB error', err))
 
 const app = express()
+
 
 const storage = multer.diskStorage({
     destination: (_, __, callback) => {
@@ -31,6 +34,7 @@ const storage = multer.diskStorage({
 })
 
 const upload = multer({storage})
+
 
 app.use(express.json())
 app.use(cors())
